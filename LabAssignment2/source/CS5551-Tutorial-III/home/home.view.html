@@ -74,7 +74,16 @@
                         <li><a href="#" class="fa fa-twitter"></a></li>
                         <li><a href="#" ng-click="logout()" class="fa fa-sign-out"></a></li>-->
                         <p>&nbsp;</p>
-                        <p><a onclick="window.location.href='#!/login'" class="btn btn-primary">Logout</a></p>
+                        <p><a onclick="signOut(); window.location.href='#!/login';" class="btn btn-primary">Logout</a></p>
+                        <script>
+                            function signOut() {
+                                var auth2 = gapi.auth2.getAuthInstance();
+                                auth2.signOut().then(function () {
+                                    console.log('User signed out.');
+                                });
+                            }
+                        </script>
+
                     </ul>
                 </div>
             </div>
