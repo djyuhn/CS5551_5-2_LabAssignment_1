@@ -16,7 +16,7 @@ app.factory('Facebook', function ($rootScope,$window) {
                         $rootScope.$broadcast('fb_connected', {facebook_id:response.authResponse.userID});
                         console.log("hii " + response.authResponse.userID);
                         $rootScope.facebook_id = response.authResponse.userID;
-                        $window.location.href="../MAshup Web Services/home.html";
+                        $window.location.href="../home/home.html";
                         break;
                     case 'not_authorized':
                     case 'unknown':
@@ -28,7 +28,7 @@ app.factory('Facebook', function ($rootScope,$window) {
                                     userNotAuthorized:true
                                 });
                                 console.log("hii " + response.authResponse.userID);
-                                $window.location.href="../MAshup Web Services/home.html";
+                                $window.location.href="../home/home.html";
                             } else {
                                 $rootScope.$broadcast('fb_login_failed');
                             }
@@ -51,7 +51,7 @@ app.factory('Facebook', function ($rootScope,$window) {
             FB.logout(function (response) {
                 if (response) {
                     $rootScope.$broadcast('fb_logout_succeded');
-                    $window.location.href="../home.html";
+                    $window.location.href="../home/home.html";
                 } else {
                     $rootScope.$broadcast('fb_logout_failed');
 
