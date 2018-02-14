@@ -16,7 +16,7 @@ myapp.config( function (TokenProvider) {
         scopes: ["https://www.googleapis.com/auth/userinfo.email"]
     } );
 } );
-myapp.controller( 'homeController', function ($scope, $http,$rootScope,$log, $window, Token, Facebook,$http,$location) {
+myapp.controller( 'HomeController', function ($scope, $http,$rootScope,$log, $window, Token, Facebook,$http,$location) {
     $scope.accessToken = Token.get()
     //  https://api.edamam.com/diet?q=chicken&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}&from=0&to=3&calories=gte%20591,%20lte%20722&health=alcohol-free
     $scope.recipelist = new Array();
