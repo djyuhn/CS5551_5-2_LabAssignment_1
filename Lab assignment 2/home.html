@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html ng-app="homeModule">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Rectangle Mobile Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--
+    Rectangle Template
+    http://www.templatemo.com/preview/templatemo_439_rectangle
+    -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/templatemo-style.css">
+    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    <style type='text/css'>
+        .partition1 {
+            width: 20%;
+            float: left;
+            margin-right: 10px;
+        }
+
+        .partition2 {
+            width: 70%;
+            float: right;
+        }
+
+        .partition-wrap {
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        td{
+            margin: 5px;
+        }
+
+    </style>
+</head>
+
+<body ng-controller="homeController">
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div class="site-bg"></div>
+<!--
+<div class="site-bg-overlay"></div>
+-->
+
+<!-- TOP HEADER -->
+<div class="top-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <p class="phone-info">Call us: <a href="#">9119911191</a></p>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="social-icons">
+                    <ul>
+                        <li><a href="#" class="fa fa-facebook"></a></li>
+                        <li><a href="#" class="fa fa-twitter"></a></li>
+                        <li><a href="#" ng-click="logout()" class="fa fa-sign-out"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- .top-header -->
+
+
+<div class="visible-xs visible-sm responsive-menu">
+    <a href="#" class="toggle-menu">
+        <i class="fa fa-bars"></i> Show Menu
+    </a>
+    <div class="show-menu">
+        <ul class="main-menu">
+            <li>
+                <a class="show-1 active homebutton" href="#"><i class="fa fa-home"></i>Home</a>
+            </li>
+            <li>
+                <a class="show-2 aboutbutton" href="#"><i class="fa fa-search"></i>Search Recipe</a>
+            </li>
+            <li>
+                <a class="show-5 contactbutton" href="#"><i class="fa fa-envelope"></i>Contact</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="container" id="page-content">
+    <div class="row">
+
+
+        <div class="col-md-9 col-sm-12 content-holder">
+            <!-- CONTENT -->
+            <div id="menu-container">
+
+
+                <div id="menu-1" class="homepage home-section text-center">
+                    <div class="welcome-text">
+                        <h2>Hello, Welcome to <strong>Team 5's Site</strong></h2>
+                        <p>Our team name is the  <span class="orange">HolyHandGenades</span> and we are working on the  <span class="orange">AR: Well-being Tracker
+                        </span> for the Propel Progam. This application will be a mobile app for ios and android phones. It is partially a chatting
+                            application where students can message their mentor directly and other students. Using AR technology students will interact
+                            with an avatar and answer daily survey questions. There will be a form option for students who prefer not to use the AR interface.
+                            Points will be given to students for every survey completed. This point total will be displayed along with student achievements on
+                            their user profile. Lastly a news section will be available, displaying news and events related to UMKC.</p>
+                        <br/>
+                    </div>
+                </div>
+
+                <div id="menu-2" class="content about-section">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-8" style="width: 100%;">
+                            <div class="box-content profile">
+                                <h3 class="widget-title">Search Recipe</h3>
+                                <form class="contact-form">
+                                    <fieldset>
+                                        <input type="text" style="width: 44%;" class="name" id="recipe"
+                                               ng-model="recipe" placeholder="Enter Movie neme here">
+                                        <input type="button" class="button" style="padding:9px 18px;"
+                                               ng-click="findRecipe();getVenues()" value="Find">
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5 col-sm-5">
+                            <div class="box-content">
+                                <h3 class="widget-title" style="font-weight: 600; ">The Result of your search</h3>
+
+                                <div class="project-item" >
+
+
+                                    <li ng-repeat="r in recipelist">
+                                        <a href="http://www.youtube.com/watch?v={{r.videoId}}">{{r.title}}</a>
+                                    </li>
+
+                                    <br/><a href="https://www.youtube.com/results?search_query={{r.name}}" style="font-size: large;">See more</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7 col-sm-7">
+                            <div class="box-content">
+                                <h3 class="widget-title" style="font-weight: 600">The knowledge service</h3>
+                                <button ng-click="abc()">Click me</button>
+                                <div style="margin-bottom: 20px;">
+                                    <li ng-repeat="venue in venueList" style="margin-bottom: 10px;">
+                                        <a  href="" ng-click="getReviews(venue)">click me!</a>
+                                    </li>
+                                </div>
+                                <div id="div_ReviewList" style="display:none;"  >
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="menu-4" class="content contact-section">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-8" style="width: 100%">
+                            <div class="box-content">
+                                <h3 class="widget-title">Contact Information</h3>
+                                <div class="welcome-text">
+
+                                    <p> <span class="orange">Name: </span>Darrin Yuhn </p>
+                                    <p> <span class="orange">Role: </span>Team Leader </p>
+                                    <p> <span class="orange">Email: </span>dygw3@mail.umkc.edu </p>
+                                    <br/>
+                                    <p> <span class="orange">Name: </span>Stephanie Retzke </p>
+                                    <p> <span class="orange">Role: </span>Developer</p>
+                                    <p> <span class="orange">Email: </span>smrhfb@mail.umkc.edu </p>
+                                    <br/>
+                                    <p> <span class="orange">Name: </span>Yuxi Mao </p>
+                                    <p> <span class="orange">Role: </span>Developer </p>
+                                    <p> <span class="orange">Email: </span>ymmm7@mail.umkc.edu </p>
+                                    <br/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="col-md-3 hidden-sm">
+
+            <nav id="nav" class="main-navigation hidden-xs hidden-sm">
+                <ul class="main-menu">
+                    <li>
+                        <a class="show-1 active homebutton" href="#"><i class="fa fa-home"></i>Home</a>
+                    </li>
+                    <li>
+                        <a class="show-2 aboutbutton" href="#"><i class="fa fa-search"></i>Search Recipe</a>
+                    </li>
+                    <li>
+                        <a class="show-5 contactbutton" href="#"><i class="fa fa-envelope"></i>Contact</a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+</div>
+
+<!-- SITE-FOOTER -->
+<div class="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+            </div>
+        </div>
+    </div>
+</div> <!-- .site-footer -->
+
+<script src="js/vendor/jquery-1.10.2.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+<script type="text/javascript" src="http://code.angularjs.org/1.1.1/angular.js"></script>
+<script type="text/javascript" src="http://code.angularjs.org/1.1.1/angular-resource.js"></script>
+<script type="text/javascript" src="http://code.angularjs.org/1.1.1/angular-sanitize.js"></script>
+<script src="js/home.js"></script>
+<script type="text/javascript" src="js/services.js"></script>
+<script src="js/googleOauth.js"></script>
+<script src="js/angularOauth.js"></script>
+
+<!-- templatemo 439 rectangle -->
+</body>
+</html>
