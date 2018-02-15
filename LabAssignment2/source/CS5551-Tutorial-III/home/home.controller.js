@@ -1,7 +1,6 @@
 ﻿(function () {
 
-    angular
-        .module('homeModule')
+    var myApp = angular.module("homeModule")
         .controller('HomeController', HomeController);
 
     HomeController.$inject = ['UserService', '$scope', '$http', '$rootScope'];
