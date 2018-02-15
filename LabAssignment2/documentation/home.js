@@ -9,14 +9,14 @@ myapp.config( function (TokenProvider) {
 
     // Sorry about this way of getting a relative URL, powers that be.
 
-    var baseUrl = document.URL.replace( '/home.view.html', '' );
+    var baseUrl = document.URL.replace( '/home.html', '' );
     TokenProvider.extendConfig( {
         clientId: '202317690708-062ts2disvkoi7lfm6strp08updu3n45.apps.googleusercontent.com',
-        redirectUri: baseUrl + '/home.view.html',  // allow lunching demo from a mirror
+        redirectUri: baseUrl + '/home.html',  // allow lunching demo from a mirror
         scopes: ["https://www.googleapis.com/auth/userinfo.email"]
     } );
 } );
-myapp.controller( 'HomeController', function ($scope, $http,$rootScope,$log, $window, Token, Facebook,$http,$location) {
+myapp.controller( 'homeController', function ($scope, $http,$rootScope,$log, $window, Token, Facebook,$http,$location) {
     $scope.accessToken = Token.get()
     //  https://api.edamam.com/diet?q=chicken&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}&from=0&to=3&calories=gte%20591,%20lte%20722&health=alcohol-free
     $scope.recipelist = new Array();
