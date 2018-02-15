@@ -4,7 +4,6 @@
     angular
         .module("app")
         .controller('LoginController', LoginController)
-        .controller('gglLoginController', gglLoginController);
 
     LoginController.$inject = ["$location", "AuthenticationService", "FlashService"];
     function LoginController($location, AuthenticationService, FlashService) {
@@ -22,48 +21,6 @@
             AuthenticationService.Login(vm.username, vm.password, function (response) {
                 if (response.success) {
                     AuthenticationService.SetCredentials(vm.username, vm.password);
-                    $location.path("/home");
-                } else {
-                    FlashService.Error(response.message);
-                    vm.dataLoading = false;
-                }
-            });
-        }
-    }
-
-    gglLoginController.$inject = ["$location", "AuthenticationService", "FlashService", "UserService"];
-    function gglLoginController($location, AuthenticationService, FlashService, UserService) {
-        var vm = this;
-
-        vm.gglLogin = gglLogin;
-
-        (function initController() {
-            // reset login status
-            AuthenticationService.ClearCredentials();
-        })();
-
-        vm.register = register;
-
-        function register() {
-            vm.dataLoading = true;
-            UserService.Create(vm.gglUser)
-                .then(function (response) {
-                    if (response.success) {
-                        FlashService.Success('Registration successful', true);
-                        $location.path('/login');
-                    } else {
-                        FlashService.Error(response.message);
-                        vm.dataLoading = false;
-                    }
-                });
-        }
-
-        function gglLogin() {
-            vm.gglLoading = true;
-
-            AuthenticationService.Login(vm.gglUser, vm.gglPass, function (response) {
-                if (response.success) {
-                    AuthenticationService.SetCredentials(vm.gglUser, vm.gglPass);
                     $location.path("/home");
                 } else {
                     FlashService.Error(response.message);
