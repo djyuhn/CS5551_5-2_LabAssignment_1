@@ -9,10 +9,10 @@ myapp.config( function (TokenProvider) {
 
     // Sorry about this way of getting a relative URL, powers that be.
 
-    var baseUrl = document.URL.replace( '/home.html', '' );
+    var baseUrl = document.URL.replace( '/home.view.html', '' );
     TokenProvider.extendConfig( {
         clientId: '202317690708-062ts2disvkoi7lfm6strp08updu3n45.apps.googleusercontent.com',
-        redirectUri: baseUrl + '/home.html',  // allow lunching demo from a mirror
+        redirectUri: baseUrl + '/home.view.html',  // allow lunching demo from a mirror
         scopes: ["https://www.googleapis.com/auth/userinfo.email"]
     } );
 } );
@@ -25,21 +25,22 @@ myapp.controller( 'homeController', function ($scope, $http,$rootScope,$log, $wi
     $scope.findRecipe = function () {
         //var end = document.getElementById('endlocation').value;
         alert( "hello" + $scope.recipe );
-        $http.get( 'https://api.edamam.com/search?q=' + $scope.recipe + '&app_id=90345b31&app_key=7884f37e59a7ff7d16ceb275bec553a9&from=0&to=3' ).success( function (data1) {
+        $http.get( "https://www.googleapis.com/youtube/v3/search?key=AIzaSyBRXn4UDfXu2OT7OnshOvc1NRoBhO7fzLY&part=snippet&maxResults=5"+
+            "&q=" + $scope.recipe ).success( function (data1) {
             console.log( data1 );
-            for (var i = 0; i < data1.hits.length; i++) {
-                $scope.recipelist[i]= {
+            $scope.recipelist[0] ={"name":$scope.recipe,}
 
-                    "name": data1.hits[i].recipe.label,
-                    "url": data1.hits[i].recipe.url,
-                    "icon": data1.hits[i].recipe.image
-                };
+            for (var i = 0; i < 5; i++) {
+                $scope.recipelist[i] = {
+                    "videoId": data1.items[i].id.videoId,
+                    "title": data1.items[i].snippet.title,
+
+
+                }
             }
-
         } )
 
     };
-
     $scope.getVenues = function () {
         var place = document.getElementById("place").value;
         var food = document.getElementById("recipe").value;

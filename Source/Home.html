@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Home</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="Learn Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+  <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+  <link href="content/css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="content/js/jquery.min.js"></script>
+  <script src="content/js/bootstrap.min.js"></script>
+  <!-- Custom Theme files -->
+  <link href="content/css/style.css" rel='stylesheet' type='text/css' />
+  <link rel="stylesheet" href="/content/css/jquery.countdown.css" />
+  <link href="content/css/download.css" rel='stylesheet' type='text/css'>
+  <!----font-Awesome----->
+  <link href="content/css/font-awesome.css" rel="stylesheet">
+
+  <script>
+      $(document).ready(function(){
+          $(".dropdown").hover(
+              function() {
+                  $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
+                  $(this).toggleClass('open');
+              },
+              function() {
+                  $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
+                  $(this).toggleClass('open');
+              }
+          );
+      });
+  </script>
+</head>
+<body class="body">
+<nav class="navbar navbar-default" role="navigation"  >
+  <div  class="container" >
+    <div class="navbar-header"  >
+
+      <a class="navbar-brand" href="#">WEB APPLICATION</a>
+    </div>
+    <!--/.navbar-header-->
+    <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" style="height: 1px;">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle"><i class="fa fa-list"></i><span>Home</span></a>
+        </li>
+        <li class="dropdown">
+          <a href="Login.html"><i class="fa fa-user"></i><span>Login</span></a>
+        </li>
+        <li class="dropdown">
+          <a href="Register.html"><i class="fa fa-user"></i><span>Register</span></a>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-globe"></i><span>About Us</span></a>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-search"></i><span>Search</span></a>
+          <ul class="dropdown-menu search-form">
+            <form>
+              <input type="text" class="search-text" name="s" placeholder="Search...">
+              <button type="submit" class="search-submit"><i class="fa fa-search"></i></button>
+            </form>
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+  <!--/.navbar-collapse-->
+
+</nav>
+<div class="courses_banner">
+  <div class="container">
+    <h3>Home</h3>
+    <p class="description">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam, adipiscing condimentum tristique vel, eleifend sed turpis. Pellentesque cursus arcu id magna euismod in elementum purus molestie.
+    </p>
+    <div class="breadcrumb1">
+      <ul>
+        <li class="icon6"><a href="#">Search</a></li>
+
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div  ng-controller="View1Ctrl" >
+    <div  class="details">
+      <div class="container"  >
+        <form>
+          <div class="col-sm-9 dropdown-buttons">
+            <div class="input-group">
+              <input class="form-control has-dark-background" type="text" id="keyword" />
+            </div>
+          </div>
+          <div class="col-sm-2 submit_button">
+            <input type="submit" name="search" value="Search"  ng-click="Search();Translate()">
+
+          </div>
+        </form>
+
+      </div>
+    </div>
+
+    <div class="container" style="text-align:center">
+      <h2 >{{translation}}</h2>
+      <ul>
+       <li ng-repeat="venue in venueList" >
+          <a  href="http://www.youtube.com/watch?v={{venue.videoId}}" style="font-size: x-large;">{{venue.title}}</a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+  <script src="js/app.js"></script>
+
+
+</body>
+</html>

@@ -107,10 +107,10 @@
                         <h2>Hello, Welcome to <strong>Team 5's Site</strong></h2>
                         <p>Our team name is the  <span class="orange">HolyHandGenades</span> and we are working on the  <span class="orange">AR: Well-being Tracker
                         </span> for the Propel Progam. This application will be a mobile app for ios and android phones. It is partially a chatting
-                            application where students can message their mentor directly and other students. Using AR technology students will interact
-                            with an avatar and answer daily survey questions. There will be a form option for students who prefer not to use the AR interface.
-                            Points will be given to students for every survey completed. This point total will be displayed along with student achievements on
-                            their user profile. Lastly a news section will be available, displaying news and events related to UMKC.</p>
+                        application where students can message their mentor directly and other students. Using AR technology students will interact
+                        with an avatar and answer daily survey questions. There will be a form option for students who prefer not to use the AR interface.
+                        Points will be given to students for every survey completed. This point total will be displayed along with student achievements on
+                        their user profile. Lastly a news section will be available, displaying news and events related to UMKC.</p>
                         <br/>
                     </div>
                 </div>
@@ -119,13 +119,11 @@
                     <div class="row">
                         <div class="col-md-8 col-sm-8" style="width: 100%;">
                             <div class="box-content profile">
-                                <h3 class="widget-title">Search </h3>
+                                <h3 class="widget-title">Search Recipe</h3>
                                 <form class="contact-form">
                                     <fieldset>
-                                        <input type="text" style="width: 44%;" class="name" id="place"
-                                               ng-model="place" placeholder="Enter Area to Find Food...">
                                         <input type="text" style="width: 44%;" class="name" id="recipe"
-                                               ng-model="recipe" placeholder="Enter Food Name...">
+                                               ng-model="recipe" placeholder="Enter Movie name here">
                                         <input type="button" class="button" style="padding:9px 18px;"
                                                ng-click="findRecipe();getVenues()" value="Find">
                                     </fieldset>
@@ -136,30 +134,26 @@
                     <div class="row">
                         <div class="col-md-5 col-sm-5">
                             <div class="box-content">
-                                <h3 class="widget-title" style="font-weight: 600; ">How To Make</h3>
+                                <h3 class="widget-title" style="font-weight: 600; ">The Result of your search</h3>
 
                                 <div class="project-item" >
+
+
                                     <li ng-repeat="r in recipelist">
-                                        <h4 class="widget-title">{{r.name}}</h4>
-                                        <div class="partition-wrap">
-                                            <div class="partition1">
-                                                <img ng-src="{{r.icon}}" style="width: 50px; height: 50px;" align="center"/>
-                                            </div>
-                                            <div class="partition2">
-                                                <a href="{{r.url}}"> {{r.url}}</a></div>
-                                        </div>
+                                        <a href="http://www.youtube.com/watch?v={{r.videoId}}">{{r.title}}</a>
                                     </li>
 
-
+                                    <br/><a href="https://www.youtube.com/results?search_query={{r.name}}" style="font-size: large;">See more</a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-7 col-sm-7">
                             <div class="box-content">
-                                <h3 class="widget-title" style="font-weight: 600">Where To Get</h3>
+                                <h3 class="widget-title" style="font-weight: 600">The knowledge service</h3>
+                                <button ng-click="abc()">Click me</button>
                                 <div style="margin-bottom: 20px;">
                                     <li ng-repeat="venue in venueList" style="margin-bottom: 10px;">
-                                        <a  href="" ng-click="getReviews(venue)">{{venue.name}}</a>
+                                        <a  href="" ng-click="getReviews(venue)">click me!</a>
                                     </li>
                                 </div>
                                 <div id="div_ReviewList" style="display:none;"  >
