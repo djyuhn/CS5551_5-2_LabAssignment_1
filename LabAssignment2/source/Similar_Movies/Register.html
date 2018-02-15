@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Learn Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link href="content/css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="content/js/jquery.min.js"></script>
+    <script src="content/js/bootstrap.min.js"></script>
+    <script src="js/func.js"></script>
+    <!-- Custom Theme files -->
+    <link href="content/css/style.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="/content/css/jquery.countdown.css" />
+    <link href="content/css/download.css" rel='stylesheet' type='text/css'>
+    <!----font-Awesome----->
+    <link href="content/css/font-awesome.css" rel="stylesheet">
+    <!----font-Awesome----->
+    <script>
+        $(document).ready(function(){
+            $(".dropdown").hover(
+                function() {
+                    $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
+                    $(this).toggleClass('open');
+                },
+                function() {
+                    $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
+                    $(this).toggleClass('open');
+                }
+            );
+        });
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation"  >
+    <div  class="container" >
+        <div class="navbar-header"  >
+
+            <a class="navbar-brand" href="#">Movie Finder</a>
+        </div>
+        <!--/.navbar-header-->
+        <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" style="height: 1px;">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="Home.html" class="dropdown-toggle"><i class="fa fa-list"></i><span>Home</span></a>
+                </li>
+                <li class="dropdown">
+                    <a href="Login.html"><i class="fa fa-user"></i><span>Login</span></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#"><i class="fa fa-user"></i><span>Register</span></a>
+                </li>
+
+                <li class="dropdown">
+                    <a href="Contact.html"><i class="fa fa-globe"></i><span> Contact </span></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-search"></i><span>Search</span></a>
+                    <ul class="dropdown-menu search-form">
+                        <form>
+                            <input type="text" class="search-text" name="s" placeholder="Search...">
+                            <button type="submit" class="search-submit"><i class="fa fa-search"></i></button>
+                        </form>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    <!--/.navbar-collapse-->
+
+</nav>
+<div class="courses_banner">
+    <div class="container">
+        <h3>Register</h3>
+        <p class="description">
+            Our team name is the HolyHandGenades and we are working on the AR: Well-being Tracker for the Propel Progam. This application will be a mobile app for ios and android phones. It is partially a chatting
+            application where students can message their mentor directly and other students. Using AR technology students will interact
+            with an avatar and answer daily survey questions. There will be a form option for students who prefer not to use the AR interface.
+            Points will be given to students for every survey completed. This point total will be displayed along with student achievements on
+            their user profile. Lastly a news section will be available, displaying news and events related to UMKC.
+        </p>
+        <div class="breadcrumb1">
+            <ul>
+                <li class="icon6"><a href="#">Main</a></li>
+                <li class="current-page">Register</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- //banner -->
+<div class="courses_box1">
+    <div class="container">
+        <form class="login" action="javascript:void(0);" method="get">
+            <p class="lead">Register New Account</p>
+            <div class="form-group">
+                <input type="text" autocomplete="off" class="required form-control" placeholder="First name *" name="firstname" />
+            </div>
+            <div class="form-group">
+                <input type="text" class="required form-control" placeholder="Last name *" name="lastname" />
+            </div>
+            <div class="form-group">
+                <input type="text"  class="required form-control" placeholder="Email *" id="email" />
+            </div>
+            <div class="form-group">
+                <input type="password" class="required form-control" placeholder="Password *"  id="password" />
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary btn-lg1 btn-block" name="submit" value="Register"  onClick="register()">
+            </div>
+            <p>Have a account? <a href="Login.html">Login Here</a></p>
+        </form>
+    </div>
+</div>
+
+
+
+
+</body>
+</html>
