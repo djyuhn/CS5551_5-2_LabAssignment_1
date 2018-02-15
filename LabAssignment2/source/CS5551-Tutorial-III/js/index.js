@@ -1,9 +1,9 @@
 /**
  * Created by user on 23/02/2016.
  */
-var myapp = angular.module( 'SocialLoginDemo', ['googleOauth','FacebookProvider'] );
+var app = angular.module( 'SocialLoginDemo', ['googleOauth','FacebookProvider'] );
 
-myapp.config( function (TokenProvider) {
+app.config( function (TokenProvider) {
     // Demo configuration for the "angular-oauth demo" project on Google.
     // Log in at will!
 
@@ -23,7 +23,7 @@ myapp.config( function (TokenProvider) {
  }]);
  */
 
-myapp.controller( 'SocialLoginController', function ($rootScope, $scope, $log, $window, Token, Facebook,$http,$location) {
+app.controller( 'SocialLoginController', function ($rootScope, $scope, $log, $window, Token, Facebook,$http,$location) {
     $scope.accessToken = Token.get();
 
     $scope.authenticate = function () {

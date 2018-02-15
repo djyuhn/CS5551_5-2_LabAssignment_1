@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+
 <html ng-app="homeModule">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,7 +16,17 @@
     <link rel="stylesheet" href="../CS5551-Tutorial-III/css/font-awesome.css">
     <link rel="stylesheet" href="../CS5551-Tutorial-III/css/bootstrap.min.css">
     <link rel="stylesheet" href="../CS5551-Tutorial-III/css/templatemo-style.css">
-    <script src="../CS5551-Tutorial-III/js/vendor/modernizr-2.6.2.min.js"></script>
+    <script src="../js/vendor/modernizr-2.6.2.min.js"></script>
+
+    <script src="../CS5551-Tutorial-III/js/vendor/jquery-1.10.2.min.js"></script>
+    <script src="../CS5551-Tutorial-III/js/plugins.js"></script>
+    <script src="../CS5551-Tutorial-III/js/main.js"></script>
+    <script src="../CS5551-Tutorial-III/js/home.js"></script>
+    <script type="text/javascript" src="../CS5551-Tutorial-III/js/services.js"></script>
+    <script src="../CS5551-Tutorial-III/js/googleOauth.js"></script>
+    <script src="../CS5551-Tutorial-III/js/angularOauth.js"></script>
+    <script src="../CS5551-Tutorial-III/login/login.controller.js"></script>
+    <script src="../CS5551-Tutorial-III/home/home.controller.js"></script>
 
     <style type='text/css'>
         .partition1 {
@@ -40,7 +52,7 @@
     </style>
 </head>
 
-<body ng-controller="homeController">
+<body ng-controller="HomeController">
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
@@ -65,7 +77,17 @@
                         <li><a href="#" class="fa fa-twitter"></a></li>
                         <li><a href="#" ng-click="logout()" class="fa fa-sign-out"></a></li>-->
                         <p>&nbsp;</p>
-                        <p><a onclick="window.location.href='#!/login'" class="btn btn-primary">Logout</a></p>
+
+                        <a href="#" onclick="signOut();" id="signout">Sign out</a>
+                        <script>
+                            function signOut() {
+                                var auth2 = gapi.auth2.getAuthInstance();
+                                auth2.signOut().then(function () {
+                                    console.log('User signed out.');
+                                });
+                            }
+                        </script>
+
                     </ul>
                 </div>
             </div>
@@ -94,7 +116,7 @@
 </div>
 
 <div class="container" id="page-content">
-    <div class="row">
+    <div class="row" ng-controller="HomeController">
 
 
         <div class="col-md-9 col-sm-12 content-holder">
@@ -121,7 +143,7 @@
                             <div class="box-content profile">
                                 <h3 class="widget-title">Search </h3>
                                 <form class="contact-form">
-                                    <fieldset>
+                                    <fieldset ng-controller="HomeController">
                                         <input type="text" style="width: 44%;" class="name" id="place"
                                                ng-model="place" placeholder="Enter Area to Find Food...">
                                         <input type="text" style="width: 44%;" class="name" id="recipe"
@@ -229,17 +251,12 @@
     </div>
 </div> <!-- .site-footer -->
 
-<script src="../CS5551-Tutorial-III/js/vendor/jquery-1.10.2.min.js"></script>
-<script src="../CS5551-Tutorial-III/js/plugins.js"></script>
-<script src="../CS5551-Tutorial-III/js/main.js"></script>
-<script type="text/javascript" src="http://code.angularjs.org/1.1.1/angular.js"></script>
-<script type="text/javascript" src="http://code.angularjs.org/1.1.1/angular-resource.js"></script>
-<script type="text/javascript" src="http://code.angularjs.org/1.1.1/angular-sanitize.js"></script>
-<script src="../CS5551-Tutorial-III/js/home.js"></script>
-<script type="text/javascript" src="../CS5551-Tutorial-III/js/services.js"></script>
-<script src="../CS5551-Tutorial-III/js/googleOauth.js"></script>
-<script src="../CS5551-Tutorial-III/js/angularOauth.js"></script>
-<script src="../CS5551-Tutorial-III/login/login.controller.js"></script>
+
+
+<script type="text/javascript" src="http://code.angularjs.org/1.6.9/angular.js"></script>
+<script type="text/javascript" src="http://code.angularjs.org/1.6.9/angular-resource.js"></script>
+<script type="text/javascript" src="http://code.angularjs.org/1.6.9/angular-sanitize.js"></script>
+<script type="text/javascript" src="http://code.angularjs.org/1.6.9/angular-route.js"></script>
 
 <!-- templatemo 439 rectangle -->
 </body>
