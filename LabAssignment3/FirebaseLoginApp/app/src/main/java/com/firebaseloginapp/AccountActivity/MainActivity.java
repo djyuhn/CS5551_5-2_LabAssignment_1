@@ -26,7 +26,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button btnChangePassword, btnRemoveUser,
+    private Button btnChangePassword, btnGoogleVision,
             changePassword, remove, signOut;
     private TextView email, firstName, lastName;
 
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//get firebase auth instance
+        //get firebase auth instance
         auth = FirebaseAuth.getInstance();
         firstName = (TextView) findViewById(R.id.firstName);
         lastName = (TextView) findViewById(R.id.lastName);
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnChangePassword = (Button) findViewById(R.id.change_password_button);
 
-        btnRemoveUser = (Button) findViewById(R.id.remove_user_button);
+        btnGoogleVision = (Button) findViewById(R.id.google_vision);
 
         changePassword = (Button) findViewById(R.id.changePass);
 
@@ -138,29 +138,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //GOING TO CHANGE THIS TO THE GOOGLE VISION API
+        // Google API Call
 
-        btnRemoveUser.setOnClickListener(new View.OnClickListener() {
+        btnGoogleVision.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                progressBar.setVisibility(View.VISIBLE);
-                if (user != null) {
-                    user.delete()
-                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if (task.isSuccessful()) {
-                                        Toast.makeText(MainActivity.this, "Your profile is deleted:( Create a account now!", Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(MainActivity.this, SignupActivity.class));
-                                        finish();
-                                        progressBar.setVisibility(View.GONE);
-                                    } else {
-                                        Toast.makeText(MainActivity.this, "Failed to delete your account!", Toast.LENGTH_SHORT).show();
-                                        progressBar.setVisibility(View.GONE);
-                                    }
-                                }
-                            });
-                }
+                startActivity(new Intent( MainActivity.this, GoogleVisionActivity.class));
             }
         });
 

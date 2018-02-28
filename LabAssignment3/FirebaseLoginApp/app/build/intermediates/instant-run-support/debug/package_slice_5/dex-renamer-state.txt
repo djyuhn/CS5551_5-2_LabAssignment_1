@@ -1,4 +1,4 @@
-#Sun Feb 25 00:44:06 CST 2018
-base.0=C\:\\Users\\steph\\Downloads\\FirebaseLoginApp-20180225T024921Z-001\\FirebaseLoginApp\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\5
+#Tue Feb 27 23:21:16 CST 2018
+base.0=C\:\\dev\\CS5551\\Lab Assignments\\CS5551_5-2_labassignments\\LabAssignment3\\FirebaseLoginApp\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\6
 path.0=classes.dex
 renamed.0=classes.dex
