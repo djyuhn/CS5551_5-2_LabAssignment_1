@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.firebaseloginapp">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -20,7 +21,16 @@
         </activity>
         <activity android:name=".AccountActivity.MainActivity" />
         <activity android:name=".AccountActivity.SignupActivity" />
-        <activity android:name=".AccountActivity.ResetPasswordActivity"></activity>
+        <activity android:name=".AccountActivity.ResetPasswordActivity" />
+
+        <meta-data
+            android:name="com.google.android.gms.vision.DEPENDENCIES"
+            android:value="ocr" />
+
+        <activity
+            android:name=".AccountActivity.GoogleVisionActivity"
+            android:label="@string/title_activity_google_vision"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

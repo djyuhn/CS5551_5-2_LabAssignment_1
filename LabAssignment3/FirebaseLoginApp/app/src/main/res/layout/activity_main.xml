@@ -95,22 +95,20 @@
         android:layout_height="wrap_content"
         android:text="@string/change_password"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/remove_user_button"
-        app:layout_constraintStart_toStartOf="@+id/remove_user_button"
+        app:layout_constraintBottom_toTopOf="@+id/google_vision"
+        app:layout_constraintStart_toStartOf="@+id/google_vision"
         tools:layout_editor_absoluteX="42dp"
         tools:layout_editor_absoluteY="312dp" />
 
     <Button
-        android:id="@+id/remove_user_button"
+        android:id="@+id/google_vision"
         style="?android:textAppearanceSmall"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="@string/camera"
+        android:text="Google Vision"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/sign_out"
-        app:layout_constraintStart_toStartOf="@+id/sign_out"
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="408dp" />
+        app:layout_constraintStart_toStartOf="@+id/sign_out" />
 
     <Button
         android:id="@+id/sign_out"
