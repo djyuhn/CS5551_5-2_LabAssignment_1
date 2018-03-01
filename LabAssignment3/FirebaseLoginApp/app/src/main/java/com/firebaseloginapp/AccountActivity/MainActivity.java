@@ -254,9 +254,4 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 
-// and yesss we have made it. WE HAVE MADE AN APP WITH LOGIN AND REGISTRATION
-// PLEASE DO LIKE AND SUBSCRIBE FOR MORE.
-//THANK YOU
-
-
 
