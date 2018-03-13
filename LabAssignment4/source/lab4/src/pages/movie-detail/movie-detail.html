@@ -1,0 +1,34 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>MovieDetail Page</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="details" padding>
+    <div *ngIf="movie" class="selection">
+        <ion-card>
+            <ion-item>
+                <ion-avatar item-left image-large>
+                    <img src="https://image.tmdb.org/t/p/w92{{movie.poster_path}}"/>
+                </ion-avatar>
+                <h1>{{movie.title}}</h1>
+                <p>{{movie.release_date}}</p>
+            </ion-item>
+ 
+            <ion-item>
+                <ion-icon name="document" item-left></ion-icon>
+                <h2>Overview</h2>
+                <p class="item-description" id="movieOverview">{{movie.overview}}</p>
+            </ion-item>
+
+            <ion-item onload="sentimentAnalysis($event, movie.overview)">
+                <ion-icon name="document" item-left></ion-icon>
+                <h2>Sentiment Analysis</h2>
+                <p class="item-analysis">{{analysis}}</p>
+            </ion-item>
+        </ion-card>
+    </div>
+</ion-content>

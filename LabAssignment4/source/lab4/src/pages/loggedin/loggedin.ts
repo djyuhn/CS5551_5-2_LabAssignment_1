@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { MovieService } from '../../services/rest/movie-service'
+import { MovieService } from '../../services/rest/movie-service';
+import { MovieDetailPage } from '../movie-detail/movie-detail';
 
 /**
  * Generated class for the LoggedinPage page.
@@ -30,18 +31,25 @@ export class LoggedinPage {
   }
 
   searchForMovie(event, key) {
-        if(event.target.value.length > 2) {
-            this.movieService.searchMovies(event.target.value).subscribe(
-                data => {
-                    this.movies = data.results; 
-                    console.log(data);
-                },
-                err => {
-                    console.log(err);
-                },
-                () => console.log('Movie Search Complete')
-            );
-        }
-    }
+    if(event.target.value.length > 1) {
+      this.movieService.searchMovies(event.target.value).subscribe(
+          data => {
+              this.movies = data.results; 
+              console.log(data);
+          },
+          err => {
+            console.log(err);
+          },
+          () => console.log('Movie Search Complete')
+        );
+      }
+  }
 
+  selectMovie(event, movie) {
+        console.log(movie);  
+        this.navCtrl.push(MovieDetailPage, {
+            movie: movie
+        });
+
+    }
 }

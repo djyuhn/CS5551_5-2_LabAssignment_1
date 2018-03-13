@@ -11,7 +11,7 @@
     </ion-item>
  
     <ion-list>    
-        <ion-item *ngFor="let movie of movies">
+        <ion-item *ngFor="let movie of movies" (click)="selectMovie($event, movie)">
             <ion-avatar item-left>
                 <img src="https://image.tmdb.org/t/p/w92{{movie.poster_path}}"/>
             </ion-avatar>

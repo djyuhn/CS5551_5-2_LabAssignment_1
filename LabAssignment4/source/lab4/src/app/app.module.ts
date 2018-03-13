@@ -10,9 +10,11 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { LoggedinPage } from '../pages/loggedin/loggedin';
 import { RegisterPage } from '../pages/register/register';
+import { MovieDetailPage } from '../pages/movie-detail/movie-detail';
 
 import { HttpModule } from '@angular/http';
 import { MovieService } from '../services/rest/movie-service';
+import { UClassifyService } from '../services/rest/uclassify-service';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -38,7 +40,8 @@ const firebaseAuth = {
     TabsPage,
     LoginPage,
     RegisterPage,
-    LoggedinPage
+    LoggedinPage,
+    MovieDetailPage
   ],
   imports: [
     BrowserModule,
@@ -56,12 +59,14 @@ const firebaseAuth = {
     TabsPage,
     LoginPage,
     RegisterPage,
-    LoggedinPage
+    LoggedinPage,
+    MovieDetailPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     MovieService,
+    UClassifyService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
