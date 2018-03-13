@@ -1,0 +1,20 @@
+<ion-view view-title="Main">
+  <ion-content ng-controller ="mycntrl">
+   <div>
+     <div>
+            <label class="item item-input">
+          <input type="text" id="mtext"  placeholder=" the text you want to classify">
+        </label>
+        <button class="button button-assertive" ng-click="classify()">Classify
+         </button>
+     </div>
+        
+        
+       <br><b>Text:</b> {{Text}}
+       <br><b>Negative:</b> {{Negative}}<br>
+       <b>Positive:</b> {{Positive}}<br>
+                 
+               </div> 
+    
+  </ion-content>
+</ion-view>

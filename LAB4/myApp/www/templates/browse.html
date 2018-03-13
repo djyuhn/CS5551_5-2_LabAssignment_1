@@ -1,0 +1,29 @@
+<ion-view view-title="Home">
+  <ion-content ng-controller ="mycntrl">
+   <div>
+     <div>
+            <label class="item item-input">
+          <input type="text" id="mtitle" ng-model="mtitle" placeholder=" Movie title here">
+        </label>
+        <button class="button button-assertive" ng-click="findMovie()">Search
+         </button>
+     </div>
+
+        
+            <!--<input type=text class=" pull-right formcontrol input-sm" ng-model="mtitle" placeholder=" title for tags" >-->
+        
+            
+         <div class="col col-33"> <img class="full-image" src="{{img}}"  /></div>
+        
+       <br><b>Title:</b> {{Title}}
+                    <br><b>Popularity:</b> {{Popularity}}<br>
+                    <b>Release Date:</b> {{Releasedon}}<br>
+                     <b>Liked:</b> {{Liked}}<br>
+                     <b>Story Line:</b> {{Storyline}}<br><br>
+                
+        
+         <b>Story sentiment Score : </b> {{entities}}
+               </div> 
+    
+  </ion-content>
+</ion-view>
