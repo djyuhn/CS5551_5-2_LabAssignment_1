@@ -11,6 +11,9 @@ import { LoginPage } from '../pages/login/login';
 import { LoggedinPage } from '../pages/loggedin/loggedin';
 import { RegisterPage } from '../pages/register/register';
 
+import { HttpModule } from '@angular/http';
+import { MovieService } from '../services/rest/movie-service';
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -41,7 +44,8 @@ const firebaseAuth = {
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseAuth),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -57,6 +61,7 @@ const firebaseAuth = {
   providers: [
     StatusBar,
     SplashScreen,
+    MovieService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
