@@ -4,5 +4,11 @@
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
-  }
+  },
+  "proxies": [
+    {
+      "path": "/v1",
+      "proxyUrl": "https://api.uclassify.com/v1"
+    }
+  ]
 }
