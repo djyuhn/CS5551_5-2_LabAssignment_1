@@ -22,6 +22,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
+
 const firebaseAuth = {
     apiKey: "AIzaSyDa40yx7oy1d3c15op6nieX6VBtzvrNwkg",
     authDomain: "labassignment4-cdfd2.firebaseapp.com",
