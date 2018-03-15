@@ -22,6 +22,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
+import { Screenshot } from '@ionic-native/screenshot';
+
+
 
 const firebaseAuth = {
     apiKey: "AIzaSyDa40yx7oy1d3c15op6nieX6VBtzvrNwkg",
@@ -68,6 +71,7 @@ const firebaseAuth = {
     SplashScreen,
     MovieService,
     UClassifyService,
+    Screenshot,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

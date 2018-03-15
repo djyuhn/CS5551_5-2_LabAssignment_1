@@ -19,7 +19,12 @@
                 </ion-avatar>
                 <p>    </p>
                 <p>Released: {{movie.release_date}}</p>
-                
+
+                <button ion-button outline (click)="screenShot()"> Take a Screenshot </button>
+                <button ion-button outline (click)="screenShotURI()"> Take a Screenshot URI </button>
+
+                <img src="{{screen}}" *ngIf="state">
+
             </ion-card-content>
  
             <ion-card-content text-wrap>
