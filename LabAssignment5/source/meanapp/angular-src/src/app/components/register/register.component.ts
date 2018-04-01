@@ -46,8 +46,8 @@ export class RegisterComponent implements OnInit {
     }
 
     // Register the user
-    this.authService.registerUser(user).subscribe(data => {
-      if(data){
+    this.authService.registerUser(user).subscribe((data: any) => {
+      if(data.success){
         this.flashMessage.show('You are now registered', {cssClass: 'alert-success', timeout: 3000});
         this.router.navigate(['/login']);
       } else {
