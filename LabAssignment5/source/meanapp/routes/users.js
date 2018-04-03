@@ -6,6 +6,15 @@ const config = require('../config/database');
 
 const User = require('../models/user');
 
+var MongoClient = require('mongodb').MongoClient;
+var assert = require('assert');
+var bodyParser = require("body-parser");
+var cors = require('cors');
+var app = express();
+//var url = 'mongodb://<dbuser>:<dbpassword>@ds231199.mlab.com:31199/labassignment5';
+var url = 'mongodb://root:admin@ds231199.mlab.com:31199/labassignment5';
+router.use(cors());
+
 // Register User
 router.post('/register', function(req, res, next) {
     let newUser = new User({
@@ -27,7 +36,7 @@ router.post('/register', function(req, res, next) {
 
 router.put('/update', function(req, res, next) {
     console.log("reached update");
-    let newUser = new User({
+    /*let newUser = new User({
         email: req.body.email,
         username: req.body.username,
         about: req.body.about,
@@ -35,7 +44,19 @@ router.put('/update', function(req, res, next) {
         likes: req.body.likes,
         dislikes: req.body.dislikes
     });
-
+*/
+    MongoClient.connect(url, function(err, client) {
+        var db= client.db('labassignment5')
+        if(err)
+        {
+            res.write("Failed, Error while connecting to Database");
+            res.end();
+        }
+        updateUser(db, req.body, function() {
+            res.write("Successfully inserted");
+            res.end();
+        });
+    });
 
 });
 
@@ -84,3 +105,20 @@ router.get('/profile', passport.authenticate('jwt', {session:false}), function(r
 });
 
 module.exports = router;
+
+var updateUser = function(db, data, callback) {
+
+    console.log(data.user_id);
+    var cursor = db.collection('users').updateOne(
+        { name: "Stephanie Retzke" },
+        {
+            $set: {
+                email: "updateEmail@gmail.com",
+                username: "Changed"
+            }
+
+        }
+    );
+
+}
+
