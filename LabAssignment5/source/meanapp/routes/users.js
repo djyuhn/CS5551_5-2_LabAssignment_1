@@ -36,7 +36,7 @@ router.post('/register', function(req, res, next) {
 
 router.put('/update', function(req, res, next) {
     console.log("reached update");
-    /*let newUser = new User({
+    let newUser = new User({
         email: req.body.email,
         username: req.body.username,
         about: req.body.about,
@@ -44,20 +44,15 @@ router.put('/update', function(req, res, next) {
         likes: req.body.likes,
         dislikes: req.body.dislikes
     });
-*/
-    MongoClient.connect(url, function(err, client) {
-        var db= client.db('labassignment5')
-        if(err)
-        {
-            res.write("Failed, Error while connecting to Database");
-            res.end();
-        }
-        updateUser(db, req.body, function() {
-            res.write("Successfully inserted");
-            res.end();
-        });
-    });
 
+    User.editUserByUsername(newUser, function(err, user) {
+        if(err) {
+            res.json({succcess: false, msg:'Failed to register the user'});
+        }
+        else {
+            res.json({succcess: true, msg:'User is registered'})
+        }
+    });
 });
 
 // Authenticate

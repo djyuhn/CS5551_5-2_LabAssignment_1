@@ -18,6 +18,18 @@ const UserSchema = mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    about: {
+        type: String
+    },
+    hobbies: {
+        type: String
+    },
+    likes: {
+        type: String
+    },
+    dislikes: {
+        type: String
     }
 });
 
@@ -30,6 +42,29 @@ module.exports.getUserById = function(id, callback) {
 module.exports.getUserByUsername = function(username, callback) {
     const query = {username: username}
     User.findOne(query, callback);
+}
+
+module.exports.editUserByUsername = function(user, callback) {
+    const query = {username: user.username}
+    User.findOneAndUpdate(
+        query,
+        {$set:{
+            username: user.username,
+            email: user.email,
+            about: user.about,
+            hobbies: user.hobbies,
+            likes: user.likes,
+            dislikes: user.dislikes
+        }},
+        {new: true},
+        function(err, doc) {
+            if(err) {
+                console.log("Something wrong when updating user!");
+            }
+
+            console.log(doc);
+        }
+    )
 }
 
 // Encypt User Password

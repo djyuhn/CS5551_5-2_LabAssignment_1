@@ -16,7 +16,7 @@ export class AuthService {
   }
   updateUser(user){
     console.log("reached auth service");
-    return this.http.post('http://localhost:3000/users/update', user);
+    return this.http.put('http://localhost:3000/users/update', user);
   }
 
   authenticateUser(user){
