@@ -19,6 +19,7 @@ export class ValidateService {
       return false;
     }
     else {
+      console.log("validated it");
       return true;
     }
   }

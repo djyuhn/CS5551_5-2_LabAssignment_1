@@ -3,22 +3,22 @@
     <h2 class="page-header">{{user.name}}</h2>
     <ul class="list-group">
       <li> Username:
-        <input type="text" name="uname" value="{{user.username}}"><br>
+        <input type="text" [(ngModel)]="uname" name="uname" ><br>
       </li>
       <li> Email:
-        <input type="text" name="emailadd" value="{{user.email}}"><br>
+        <input type="text" [(ngModel)]="emailadd" name="email" ><br>
       </li>
       <li> About:
-        <input type="text" name="about" value="{{user.about}}"><br>
+        <input type="text" [(ngModel)]="about" name="about" ><br>
       </li>
       <li> Hobbies:
-        <input type="text" name="hobbies" value="{{user.hobbies}}"><br>
+        <input type="text" [(ngModel)]="hobbies" name="hobbies" ><br>
       </li>
       <li> Likes:
-        <input type="text" name="likes" value="{{user.likes}}"><br>
+        <input type="text" [(ngModel)]="likes" name="likes" ><br>
       </li>
       <li> Dislikes:
-        <input type="text" name="dislikes" value="{{user.dislikes}}"><br>
+        <input type="text" [(ngModel)]="dislikes" name="dislikes" ><br>
       </li>
     </ul>
 

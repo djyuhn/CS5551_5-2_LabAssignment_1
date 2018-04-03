@@ -36,7 +36,15 @@ export class EditComponent implements OnInit {
   }
 
   onEditSubmit(){
-    const user = {
+    this.authservice.getProfile().subscribe((profile:any) => {
+        this.user = profile.user;
+      },
+      err => {
+        console.log(err);
+        return false;
+      });
+
+    const user2 = {
       username: this.uname,
       email: this.emailadd,
       about: this.about,
@@ -44,17 +52,17 @@ export class EditComponent implements OnInit {
       likes: this.likes,
       dislikes: this.dislikes
     }
-
+      console.log("Got input");
 
     // Required Fields
-    if(!this.validateService.validateEdit(user)){
-      this.flashMessage.show('Please fill in all fields', {cssClass: 'alert-danger', timeout: 3000});
+    if(!this.validateService.validateEdit(user2)){
+      this.flashMessage.show('Please fill in all fields' +user2.about+ " " +user2.username, {cssClass: 'alert-danger', timeout: 3000});
       return false;
     }
 
 
-    // Register the user
-    this.authservice.registerUser(user).subscribe((data: any) => {
+    // Update the user details
+    this.authservice.updateUser(user2).subscribe((data: any) => {
       if(data.success){
         this.flashMessage.show('Changes Saved', {cssClass: 'alert-success', timeout: 3000});
         this.router.navigate(['/profile']);

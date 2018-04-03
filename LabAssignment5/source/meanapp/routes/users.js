@@ -25,6 +25,20 @@ router.post('/register', function(req, res, next) {
     });
 });
 
+router.put('/update', function(req, res, next) {
+    console.log("reached update");
+    let newUser = new User({
+        email: req.body.email,
+        username: req.body.username,
+        about: req.body.about,
+        hobbies: req.body.hobbies,
+        likes: req.body.likes,
+        dislikes: req.body.dislikes
+    });
+
+
+});
+
 // Authenticate
 router.post('/authenticate', function(req, res, next) {
     const username = req.body.username;
