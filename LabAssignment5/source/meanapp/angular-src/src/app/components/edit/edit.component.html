@@ -1,0 +1,28 @@
+<form (submit)="onEditSubmit()">
+  <div *ngIf="user">
+    <h2 class="page-header">{{user.name}}</h2>
+    <ul class="list-group">
+      <li> Username:
+        <input type="text" [(ngModel)]="uname" name="uname" ><br>
+      </li>
+      <li> Email:
+        <input type="text" [(ngModel)]="emailadd" name="email" ><br>
+      </li>
+      <li> About:
+        <input type="text" [(ngModel)]="about" name="about" ><br>
+      </li>
+      <li> Hobbies:
+        <input type="text" [(ngModel)]="hobbies" name="hobbies" ><br>
+      </li>
+      <li> Likes:
+        <input type="text" [(ngModel)]="likes" name="likes" ><br>
+      </li>
+      <li> Dislikes:
+        <input type="text" [(ngModel)]="dislikes" name="dislikes" ><br>
+      </li>
+    </ul>
+
+    <input type="submit" class="button" value="Save Changes">
+
+  </div>
+</form>

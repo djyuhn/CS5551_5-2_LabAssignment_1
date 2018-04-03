@@ -14,6 +14,10 @@ export class AuthService {
   registerUser(user){
     return this.http.post('http://localhost:3000/users/register', user);
   }
+  updateUser(user){
+    console.log("reached auth service");
+    return this.http.put('http://localhost:3000/users/update', user);
+  }
 
   authenticateUser(user){
     return this.http.post('http://localhost:3000/users/authenticate', user);
@@ -28,7 +32,7 @@ export class AuthService {
         'Authorization': this.authToken
       })
     };
-    
+
     return this.http.get('http://localhost:3000/users/profile', httpOptions);
   }
 

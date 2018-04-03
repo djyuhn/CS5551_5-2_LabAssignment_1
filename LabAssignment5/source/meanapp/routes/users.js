@@ -6,6 +6,15 @@ const config = require('../config/database');
 
 const User = require('../models/user');
 
+var MongoClient = require('mongodb').MongoClient;
+var assert = require('assert');
+var bodyParser = require("body-parser");
+var cors = require('cors');
+var app = express();
+//var url = 'mongodb://<dbuser>:<dbpassword>@ds231199.mlab.com:31199/labassignment5';
+var url = 'mongodb://root:admin@ds231199.mlab.com:31199/labassignment5';
+router.use(cors());
+
 // Register User
 router.post('/register', function(req, res, next) {
     let newUser = new User({
@@ -16,6 +25,27 @@ router.post('/register', function(req, res, next) {
     });
 
     User.addUser(newUser, function(err, user) {
+        if(err) {
+            res.json({succcess: false, msg:'Failed to register the user'});
+        }
+        else {
+            res.json({succcess: true, msg:'User is registered'})
+        }
+    });
+});
+
+router.put('/update', function(req, res, next) {
+    console.log("reached update");
+    let newUser = new User({
+        email: req.body.email,
+        username: req.body.username,
+        about: req.body.about,
+        hobbies: req.body.hobbies,
+        likes: req.body.likes,
+        dislikes: req.body.dislikes
+    });
+
+    User.editUserByUsername(newUser, function(err, user) {
         if(err) {
             res.json({succcess: false, msg:'Failed to register the user'});
         }
@@ -70,3 +100,20 @@ router.get('/profile', passport.authenticate('jwt', {session:false}), function(r
 });
 
 module.exports = router;
+
+var updateUser = function(db, data, callback) {
+
+    console.log(data.user_id);
+    var cursor = db.collection('users').updateOne(
+        { name: "Stephanie Retzke" },
+        {
+            $set: {
+                email: "updateEmail@gmail.com",
+                username: "Changed"
+            }
+
+        }
+    );
+
+}
+
