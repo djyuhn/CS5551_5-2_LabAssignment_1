@@ -1,0 +1,63 @@
+<!--
+  Generated template for the LoggedinPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    
+    <ion-item>
+        <img width="80" height="80" src="{{ myPerson.photoURL }}">
+    </ion-item>
+
+    <ion-item>
+        <ion-label>First Name</ion-label>
+        <ion-label>{{ myPerson.firstName }}</ion-label>
+    </ion-item>
+    
+    <ion-item>
+        <ion-label>Last Name</ion-label>
+        <ion-label>{{ myPerson.lastName }}</ion-label>
+    </ion-item>
+    
+    <ion-item>
+        <ion-label>Email</ion-label>
+        <ion-label>{{ myPerson.username }}</ion-label>
+    </ion-item>
+    
+    <ion-item>
+        <ion-label>Hobbies</ion-label>
+        <ion-label>{{ myPerson.hobby }}</ion-label>
+    </ion-item>
+    
+    <ion-item>
+        <ion-label>Likes</ion-label>
+        <ion-label>{{ myPerson.like }}</ion-label>
+    </ion-item>
+    
+    <ion-item>
+        <ion-label>About</ion-label>
+        <ion-label>{{ myPerson.about }}</ion-label>
+    </ion-item>
+  
+    
+    
+    
+    <div passing>
+    
+        <button block ion-button (click)="edit()">Edit</button>
+        
+    </div>
+    
+    
+
+</ion-content>

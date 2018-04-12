@@ -1,0 +1,33 @@
+<!--
+  Generated template for the SurveyHomePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>SurveyHome</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    
+    <h5>Active surveys</h5>
+    <ion-list>
+        <ion-item-sliding *ngFor="let survey of surveys; let i = index" #slidingItem>
+            <ion-item>
+                <h2>{{survey.Name}}</h2>
+                <p><ion-icon name="stopwatch"></ion-icon> {{survey.CreatedAt | date: 'dd/MM/yyyy H:mm'}}</p>
+                <div item-right>
+                  <button block ion-button small (click)="navigateAR(survey)">Respond via AR</button>
+                  <button block ion-button small (click)="navigateText(survey)">Respond via Text</button>
+                </div>
+                <!--<button ion-button clear item-end>View</button>-->
+            </ion-item>
+        </ion-item-sliding>
+    </ion-list>
+
+</ion-content>
