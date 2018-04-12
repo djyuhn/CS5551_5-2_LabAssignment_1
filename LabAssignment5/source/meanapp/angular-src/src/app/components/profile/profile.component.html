@@ -3,5 +3,13 @@
   <ul class="list-group">
     <li class="list-group-item">Username : {{user.username}}</li>
     <li class="list-group-item">Email : {{user.email}}</li>
+    <li class="list-group-item">About : {{user.about}}</li>
+    <li class="list-group-item">Hobbies : {{user.hobbies}}</li>
+    <li class="list-group-item">Likes : {{user.likes}}</li>
+    <li class="list-group-item">Dislikes : {{user.dislikes}}</li>
   </ul>
+
+  <a [routerLink]="['/edit']" class="button"> Edit Profile </a>
+
 </div>
+

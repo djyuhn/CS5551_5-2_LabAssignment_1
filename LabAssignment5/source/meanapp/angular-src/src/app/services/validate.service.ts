@@ -13,11 +13,22 @@ export class ValidateService {
       return true;
     }
   }
+  validateEdit(user) {
+    if(user.username == undefined || user.email == undefined || user.about == undefined || user.hobbies == undefined
+       || user.likes == undefined || user.dislikes == undefined )  {
+      return false;
+    }
+    else {
+      console.log("validated it");
+      return true;
+    }
+  }
 
-/* 
+
+/*
  * Regular expression to validate email entry. Obtained from the following link.
  * https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
- * 
+ *
  */
   validateEmail(email){
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
